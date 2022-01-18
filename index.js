@@ -1,42 +1,94 @@
 
-let names =[]
-console.log(names)
+let teamNumberId = document.getElementById('teamNumber')
+let inputId = document.getElementById('userInput')
 const userInput = function(){
     let nameid = document.getElementById('names')
-    let nameidNewClass = document.createElement('div')
-    nameidNewClass.classList.add('col-4')
-    let list = document.createElement('ul')
+   
+    let list = document.createElement('li')
     
     
     
-    let inputId = document.getElementById('userInput').value//user input
-    if(inputId==""){
+    let names = inputId.value//user input
+   
+    list.innerText = `${names}`
+   
+    nameid.appendChild(list)   
+}  
+
+
+
+
+
+
+
+
+const addTeams = function (event){
+    event.preventDefault()
+    console.log('button clicked')
+    let teamNumber = teamNumberId.value
+    console.log(teamNumber)
+    
+    let teamidValue = document.getElementById('teamdata')
+    let li = document.createElement('li')
+    for(let i=0;i<teamNumber;i++){
+        
+        li.innerText += `
+        Team ${i + 1}       
+    `
+        
+    }
+    teamidValue.appendChild(li)
+    
+    
+    
+    
+}  
+    
+    
+
+const create = function(){
+    
+    
+    //let teamNumberId = document.getElementById('teamNumber')
+    let number = document.getElementById('teamNumber')
+    if(number = undefined){
+        number.innerText += 2
+        console.log(number)
+    }
+        
+    
+
+    }  
+    
+        
+
+
+
+
+
+
+const Assign = function(){
+    
+    //let inputId = document.getElementById('userInput').value
+    //let className = document.getElementsByClassName('.h5')
+    let newelement = document.querySelector('#teamNumberdata')
+    console.log(typeof(newelement))
+    console.log(newelement)  
+    let id = document.getElementById('asign')
+  
+    let random = Math.floor(Math.random()*newelement.length)
+    
+    id.innerText =newelement[random]
+        
+        
 
     }
-    list.innerText = `${inputId}`
-    nameidNewClass.appendChild(list)
-    names.push(inputId)//pushing input data to global variable
-    nameid.appendChild(nameidNewClass)   
-}  
-window.onload =function(){
-    userInput()
-    console.log(names)
+    
+window.onload=function (){
+    create()
 }
 
-function enterName(){
-
-    let displayName = document.getElementById("name");
-    let teamName = document.getElementById("team");
-
-    let nameDisplay = document.getElementById("enterNameDisplay")
-    let newp = document.createElement('p')
-    newp.innerText= displayName.value;
-    nameDisplay.appendChild(newp)
 
 
-    let teamDisplay = document.getElementById("teamNameDisplay")
-    let newElement = document.createElement('p')
-    newp.innerText= teamName.value;
-    nameDisplay.appendChild(newElement)
 
-}
+
